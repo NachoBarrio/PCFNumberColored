@@ -13,6 +13,8 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 	public refreshData(evt: Event) : void
 	{
 		this._value = (this.inputElement.value as any);
+		if(this._value > 3)
+			this.inputElement.setAttribute("class", "inputTextMayor");
 		this._notifyOutputChanged();
 	}
 	/**
@@ -45,6 +47,9 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		this.inputElement.addEventListener("input",this._refreshData);
 		this.inputElement.setAttribute("id","inputText");
 		this.inputElement.addEventListener("input", this._refreshData);
+		//Aplicar clases en funcion del valor
+		if(this._value > 3)
+			this.inputElement.setAttribute("class", "inputTextMayor");
 		// retrieving the latest value from the control and setting it to the HTMl elements.
 		this._value = context.parameters.sampleProperty.raw ? context.parameters.sampleProperty.raw : 0;
 		this.inputElement.setAttribute("value",context.parameters.sampleProperty?
@@ -65,9 +70,14 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 	{
 		// Add code to update control view
 		this._value = context.parameters.sampleProperty.raw ? context.parameters.sampleProperty.raw : 0;
+		if(this._value > 3)
+			this.inputElement.setAttribute("class", "inputTextMayor");
+		else
+		this.inputElement.setAttribute("class", "inputTextMenor");
 		this._context = context;
 		this.inputElement.setAttribute("value",context.parameters.sampleProperty.raw ? context.parameters.sampleProperty.raw.toString() : "");
 		this._notifyOutputChanged();
+		
 	}
 
 	/** 
