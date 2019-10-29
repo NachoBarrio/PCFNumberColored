@@ -15,6 +15,8 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		this._value = (this.inputElement.value as any);
 		if(this._value > 3)
 			this.inputElement.setAttribute("class", "inputTextMayor");
+		else
+			this.inputElement.setAttribute("class", "inputTextMenor");
 		this._notifyOutputChanged();
 	}
 	/**
@@ -44,7 +46,6 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		// creating HTML elements for the input type range and binding it to the function which refreshes the control data
 		this.inputElement = document.createElement("input");
 		this.inputElement.setAttribute("type", "label");
-		this.inputElement.addEventListener("input",this._refreshData);
 		this.inputElement.setAttribute("id","inputText");
 		this.inputElement.addEventListener("input", this._refreshData);
 		//Aplicar clases en funcion del valor
@@ -59,6 +60,7 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		container.appendChild(this._container);
 		var sample = document.createElement("div");
 		container.appendChild(sample);
+		
 	}
 
 
@@ -70,6 +72,7 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 	{
 		// Add code to update control view
 		this._value = context.parameters.sampleProperty.raw ? context.parameters.sampleProperty.raw : 0;
+		this.inputElement.value = this._value.toString();
 		if(this._value > 3)
 			this.inputElement.setAttribute("class", "inputTextMayor");
 		else
@@ -98,7 +101,6 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 	public destroy(): void
 	{
 		// Add code to cleanup control if necessary
-		this.inputElement.removeEventListener("input", this._refreshData);
 		this.inputElement.removeEventListener("input", this._refreshData);
 	}
 }
