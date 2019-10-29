@@ -9,12 +9,16 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 	private _context: ComponentFramework.Context<IInputs>;
 	private _refreshData: EventListenerOrEventListenerObject;
 
+	private imgElement: HTMLImageElement;
+
 
 	public refreshData(evt: Event) : void
 	{
 		this._value = (this.inputElement.value as any);
 		if(this._value > 3)
 			this.inputElement.setAttribute("class", "inputTextMayor");
+		else if(this._value == 3)
+			this.inputElement.setAttribute("class", "inputTextIgual");
 		else
 			this.inputElement.setAttribute("class", "inputTextMenor");
 		this._notifyOutputChanged();
@@ -57,10 +61,16 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		context.parameters.sampleProperty.toString() : "0");
 		// appending the HTML elements to the control's HTML container element.
 		this._container.appendChild(this.inputElement);
+
+		this.imgElement = document.createElement("img");
+		this.imgElement.src = "https://i.vimeocdn.com/portrait/11181761_640x640";
+		this.imgElement.style.width = "50px";
+		this._container.appendChild(this.imgElement);
+
 		container.appendChild(this._container);
 		var sample = document.createElement("div");
 		container.appendChild(sample);
-		
+
 	}
 
 
@@ -75,8 +85,12 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		this.inputElement.value = this._value.toString();
 		if(this._value > 3)
 			this.inputElement.setAttribute("class", "inputTextMayor");
+		else if(this._value == 3)
+			this.inputElement.setAttribute("class", "inputTextIgual");
 		else
-		this.inputElement.setAttribute("class", "inputTextMenor");
+			this.inputElement.setAttribute("class", "inputTextMenor");
+			
+		this._notifyOutputChanged();
 		this._context = context;
 		this.inputElement.setAttribute("value",context.parameters.sampleProperty.raw ? context.parameters.sampleProperty.raw.toString() : "");
 		this._notifyOutputChanged();

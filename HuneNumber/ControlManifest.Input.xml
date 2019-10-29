@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="iavhune" constructor="HuneNumber" version="0.0.16" display-name-key="HuneNumber" description-key="HuneNumber description" control-type="standard">
+  <control namespace="iavhune" constructor="HuneNumber" version="0.0.26" display-name-key="HuneNumber" description-key="HuneNumber description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <type-group name="numbers">
       <type>Whole.None</type>
