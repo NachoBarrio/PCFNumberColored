@@ -9,17 +9,20 @@
     color: rgb(56, 245, 81);
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 0.5rem;
 }
 .inputTextMenor {
     border: none;
     color: rgb(235, 43, 52);
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 0.5rem;
 }
 .inputTextIgual {
     border: none;
     color: rgb(236, 252, 14);
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 0.5rem;
 }
 

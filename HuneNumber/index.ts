@@ -62,10 +62,10 @@ export class HuneNumber implements ComponentFramework.StandardControl<IInputs, I
 		// appending the HTML elements to the control's HTML container element.
 		this._container.appendChild(this.inputElement);
 
-		this.imgElement = document.createElement("img");
-		this.imgElement.src = "https://i.vimeocdn.com/portrait/11181761_640x640";
-		this.imgElement.style.width = "50px";
-		this._container.appendChild(this.imgElement);
+		// this.imgElement = document.createElement("img");
+		// this.imgElement.src = "https://i.vimeocdn.com/portrait/11181761_640x640";
+		// this.imgElement.style.width = "50px";
+		// this._container.appendChild(this.imgElement);
 
 		container.appendChild(this._container);
 		var sample = document.createElement("div");
